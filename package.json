@@ -1,0 +1,57 @@
+{
+  "name": "@droppedcode/index-generator",
+  "version": "1.0.0",
+  "author": "droppedcode",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "igen": "node dist/cli.js ./src ./src/index.ts --exclude \\.test\\.ts$",
+    "dep": "npm run dependencies",
+    "docs": "rimraf ./docs/**/* && typedoc --disableSources --entryPointStrategy expand --includes ./ ./src && copyfiles -u 2 ./documentation/assets/* ./docs/assets/",
+    "lint": "eslint ./src/** --max-warnings 0",
+    "lint:fix": "eslint ./src/** --fix",
+    "pack": "npm run build && npm pack",
+    "test": "tsc --project ./tsconfig.test.json && mocha ./test/**/*.test.js"
+  },
+  "peerDependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.0",
+    "@types/command-line-args": "^5.2.0",
+    "@types/lodash": "^4.14.178",
+    "@types/mocha": "^9.1.0",
+    "@types/node": "^16.11.12",
+    "@types/rimraf": "^3.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.2",
+    "chai": "^4.3.6",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^7.0.0",
+    "copyfiles": "^2.4.1",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-disable-autofix": "^0.1.6",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsdoc": "^37.7.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "mocha": "^9.2.2",
+    "move-cli": "^2.0.0",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "typedoc": "^0.22.11",
+    "typedoc-plugin-missing-exports": "^0.22.6",
+    "typescript": "^4.5.4",
+    "wait-on": "^6.0.1"
+  },
+  "bin": {
+    "igen": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "command-line-args": "^5.2.1"
+  }
+}

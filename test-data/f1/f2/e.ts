@@ -1,0 +1,1 @@
+export type E = void;
