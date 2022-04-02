@@ -81,3 +81,95 @@ import { IndexGenerator, Options } from '@droppedcode/index-generator';
 ### Ignore files
 
 You can ignore files with adding "// index-generator-ignore" comment to the file (anywhere).
+
+### Modes
+
+The different modes generate the following for this input:
+
+```
+src
+|- f0
+ |- f1
+  |- b.ts
+ |- c.ts
+|- a.ts
+```
+
+#### path
+
+Put the output file to the path defined (with path ./src and no out defined), if not absolute then relative to the cwd (this is the default).
+
+The generated file will not compile because the paths are not valid. You always should define the output path for the generated file (e.g. ./src/index.ts) or modify the format to contain the needed path.
+
+```
+src
+|- f0
+ |- f1
+  |- b.ts
+ |- c.ts
+|- a.ts
+index.ts
+  export * from './f0/f1/b.ts';
+  export * from './f0/c.ts';
+  export * from './a.ts';
+```
+
+#### root
+
+Put the output file into the root folder(s).
+
+```
+src
+|- f0
+ |- f1
+  |- b.ts
+ |- c.ts
+|- a.ts
+|- index.ts
+     export * from './f0/f1/b';
+     export * from './f0/c';
+     export * from './a';
+```
+
+#### folder
+
+File per folder, including sub folder files from the individual files.
+
+```
+src
+|- f0
+ |- f1
+  |- b.ts
+  |- index.ts
+       export * from './b';
+ |- c.ts
+ |- index.ts
+      export * from './f1/b';
+      export * from './c';
+|- a.ts
+|- index.ts
+     export * from './f0/f1/b';
+     export * from './f0/c';
+     export * from './a';
+```
+
+#### sub
+
+File per folder, including all sub folder index files, ignoring the individual files.
+
+```
+src
+|- f0
+ |- f1
+  |- b.ts
+  |- index.ts
+       export * from './b';
+ |- c.ts
+ |- index.ts
+      export * from './f1/index';
+      export * from './c';
+|- a.ts
+|- index.ts
+     export * from './f0/index';
+     export * from './a';
+```
