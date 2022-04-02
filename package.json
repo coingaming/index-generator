@@ -1,6 +1,6 @@
 {
   "name": "@droppedcode/index-generator",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": "droppedcode",
   "license": "MIT",
   "scripts": {
@@ -53,5 +53,10 @@
   "types": "dist/index.d.ts",
   "dependencies": {
     "command-line-args": "^5.2.1"
-  }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "homepage": "https://github.com/droppedcode/index-generator",
+  "repository": "git://github.com/droppedcode/index-generator"
 }
