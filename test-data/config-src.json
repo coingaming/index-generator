@@ -1,0 +1,5 @@
+{
+  "paths": ["./src"],
+  "output": "./src/index.ts",
+  "excludes": ["\\.test\\.ts$"]
+}

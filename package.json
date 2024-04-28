@@ -1,11 +1,12 @@
 {
   "name": "@droppedcode/index-generator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "droppedcode",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
     "igen": "node dist/cli.js ./src ./src/index.ts --exclude \\.test\\.ts$",
+    "igen-c": "node dist/cli.js -c ./test-data/config-src.json",
     "dep": "npm run dependencies",
     "docs": "rimraf ./docs/**/* && typedoc --disableSources --entryPointStrategy expand --includes ./ ./src && copyfiles -u 2 ./documentation/assets/* ./docs/assets/",
     "lint": "eslint ./src/** --max-warnings 0",
