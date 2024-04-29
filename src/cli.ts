@@ -113,7 +113,5 @@ options = {
   format: args.format ?? options.format,
 };
 
-console.log(options);
-
 const generator = new IndexGenerator(options);
 generator.generate();
