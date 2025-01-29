@@ -181,6 +181,7 @@ export class IndexGenerator {
 
       const ext = path.extname(file);
       const name = path.basename(file, ext);
+      const dir_name = path.basename(path.dirname(file));
       const rel = path.dirname(file);
       const abs = path.join(root, rel);
 
@@ -189,6 +190,8 @@ export class IndexGenerator {
           switch (m) {
             case '{name}':
               return name;
+            case '{dir_name}':
+              return dir_name;
             case '{ext}':
               return ext;
             case '{rel}':
